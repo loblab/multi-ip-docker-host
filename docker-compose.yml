@@ -1,0 +1,39 @@
+version: "3.0"
+
+networks:
+    default:
+        driver: bridge
+        driver_opts:
+            com.docker.network.bridge.host_binding_ipv4: 10.7.3.201
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.28.1.0/24
+
+    another:
+        driver: bridge
+        driver_opts:
+            com.docker.network.bridge.host_binding_ipv4: 10.7.3.202
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.28.2.0/24
+
+services:
+
+    server1:
+        image: httpd
+        hostname: server1
+        container_name: server1
+        ports:
+            - "801:80"
+
+    server2:
+        image: httpd
+        hostname: server2
+        container_name: server2
+        networks:
+            - another
+        ports:
+            - "802:80"
+
