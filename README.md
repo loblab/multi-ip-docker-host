@@ -2,7 +2,9 @@
 
 See also: [Wrong source IP from container with host_binding_ipv4 in a 2 IP host with 1 NIC](https://github.com/docker/for-linux/issues/296)
 
-- Platform: docker-ce 18.03 at Linux (Debian 9.x, Ubuntu 16.04)
+- Platform: docker-ce/Linux
+- Tested: docker-ce 18.03 (Debian 9.x, Ubuntu 16.04); docker-ce 18.05 (Ubuntu 18.04)
+- Updated: 5/4/2018
 - Created: 5/3/2018
 - Author: loblab
 

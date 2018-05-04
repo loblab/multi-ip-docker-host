@@ -1,9 +1,10 @@
 #!/bin/bash
+set -e
 
 # Modify following parameters
 NET=10.7.3
 TARGET=$NET.16
-NIC=enp0s25
+NIC=enp4s0
 
 IP1=$NET.201
 IP2=$NET.202
@@ -30,6 +31,7 @@ function test1() {
 function test2() {
     echo "ping from different NIC/server..."
     echo "Please capture ICMP packets on $TARGET"
+    set +e
     set -x
     ping -c 1 -I $IP1 $TARGET
     ping -c 1 -I $IP2 $TARGET
